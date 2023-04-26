@@ -5,7 +5,7 @@ import com.example.todolist.data.local.TaskDao
 import com.example.todolist.data.local.TaskEntry
 import javax.inject.Inject
 
-class TaskRepository @Inject constructor (private val taskDao:TaskDao) {
+class TaskRepository  (private val taskDao:TaskDao) {
 
     suspend fun insert(taskEntry: TaskEntry) = taskDao.insert(taskEntry)
 

@@ -1,4 +1,4 @@
-package com.example.todolist.ui
+package com.example.todolist
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,7 +7,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.todolist.R
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

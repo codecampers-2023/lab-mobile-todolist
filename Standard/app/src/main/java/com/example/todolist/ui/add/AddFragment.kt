@@ -8,38 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.todolist.R
 import com.example.todolist.data.local.TaskEntry
 import com.example.todolist.databinding.FragmentAddBinding
 import com.example.todolist.ui.task.TaskViewModel
-import dagger.hilt.android.AndroidEntryPoint
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AddFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-
-@AndroidEntryPoint
 class AddFragment : Fragment() {
 
-    private val viewModel: TaskViewModel by viewModels()
-
-    private var _binding: FragmentAddBinding? = null
-
-
-    private val binding get() = _binding!!
-
+    // https://dev.to/vtsen/recommended-ways-to-create-viewmodel-or-androidviewmodel-5e7k
+    private var viewModel =  TaskViewModel(requireActivity().application)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentAddBinding.inflate(inflater, container, false)
+        val binding = FragmentAddBinding.inflate(inflater, container, false)
 
         val myAdapter = ArrayAdapter(
             requireContext(),

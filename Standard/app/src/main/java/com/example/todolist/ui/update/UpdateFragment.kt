@@ -7,21 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.todolist.R
 import com.example.todolist.data.local.TaskEntry
 import com.example.todolist.databinding.FragmentUpdateBinding
 import com.example.todolist.ui.task.TaskViewModel
-import dagger.hilt.android.AndroidEntryPoint
 
 
-
-@AndroidEntryPoint
 class UpdateFragment : Fragment() {
 
-    private val viewModel: TaskViewModel by viewModels()
+    // https://dev.to/vtsen/recommended-ways-to-create-viewmodel-or-androidviewmodel-5e7k
+    private var viewModel =  TaskViewModel(requireActivity().application)
+
     private var _binding: FragmentUpdateBinding? = null
     private val binding get() = _binding!!
     private val args by navArgs<UpdateFragmentArgs>()

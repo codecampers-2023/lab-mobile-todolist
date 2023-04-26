@@ -4,7 +4,6 @@ plugins {
 
     id 'kotlin-kapt' // Annotation processors
     id 'kotlin-parcelize' // fournit un générateur d'implémentation Parcelable.
-    id 'dagger.hilt.android.plugin' // Injection de dépendances
     id 'androidx.navigation.safeargs.kotlin'
 
 

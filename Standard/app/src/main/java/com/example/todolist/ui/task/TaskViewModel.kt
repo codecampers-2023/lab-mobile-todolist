@@ -1,18 +1,31 @@
 package com.example.todolist.ui.task
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.todolist.data.TaskRepository
+import com.example.todolist.data.local.TaskDatabase
 import com.example.todolist.data.local.TaskEntry
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class TaskViewModel @Inject constructor (private val repository: TaskRepository) : ViewModel() {
-    val getAllTasks = repository.getAllTasks()
-    val getAllPriorityTasks = repository.getAllPriorityTasks()
+class TaskViewModel(context: Context?) : ViewModel() {
+
+    private val taskDao = context?.let { TaskDatabase.getDatabase(it).taskDao() }
+    private val repository : TaskRepository
+
+
+    val getAllTasks: LiveData<List<TaskEntry>>
+    val getAllPriorityTasks: LiveData<List<TaskEntry>>
+
+
+    init {
+
+        repository = TaskRepository(taskDao)
+        getAllTasks = repository.getAllTasks()
+        getAllPriorityTasks = repository.getAllPriorityTasks()
+    }
+
 
     fun insert(taskEntry: TaskEntry) = viewModelScope.launch {
         repository.insert(taskEntry)
