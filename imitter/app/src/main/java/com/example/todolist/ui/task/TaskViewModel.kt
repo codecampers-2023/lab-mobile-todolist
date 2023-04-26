@@ -5,9 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.todolist.data.TaskRepository
 import com.example.todolist.data.local.TaskEntry
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class TaskViewModel @Inject constructor (private val repository: TaskRepository) : ViewModel() {
     val getAllTasks = repository.getAllTasks()
     val getAllPriorityTasks = repository.getAllPriorityTasks()

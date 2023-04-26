@@ -59,6 +59,7 @@ class TaskFragment : Fragment() {
 
         binding.apply {
             recyclerView.adapter = mAdapter
+
             floatingActionButton.setOnClickListener {
                 findNavController().navigate(R.id.action_taskFragment_to_addFragment)
             }
