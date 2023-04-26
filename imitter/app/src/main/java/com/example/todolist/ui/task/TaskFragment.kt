@@ -45,7 +45,7 @@ class TaskFragment : Fragment() {
         binding.viewModel = viewModel
 
         mAdapter = TaskAdapter(TaskClickListener { taskEntry ->
-            findNavController().navigate(TaskFragmentDirections.actionTaskFragmentToUpdateFragment())
+            findNavController().navigate(TaskFragmentDirections.actionTaskFragmentToUpdateFragment(taskEntry))
         })
 
 
