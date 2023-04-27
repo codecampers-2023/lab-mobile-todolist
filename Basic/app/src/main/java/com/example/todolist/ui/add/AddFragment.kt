@@ -10,21 +10,19 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.todolist.R
+import com.example.todolist.data.TaskRepository
 import com.example.todolist.data.local.TaskEntry
 import com.example.todolist.databinding.FragmentAddBinding
-import com.example.todolist.ui.task.TaskViewModel
-
 
 class AddFragment : Fragment() {
 
-    // https://dev.to/vtsen/recommended-ways-to-create-viewmodel-or-androidviewmodel-5e7k
-    private var viewModel =  TaskViewModel(requireActivity().application)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
+        val taskRepository = TaskRepository()
         val binding = FragmentAddBinding.inflate(inflater, container, false)
 
         val myAdapter = ArrayAdapter(
@@ -49,7 +47,8 @@ class AddFragment : Fragment() {
                     priority,
                     System.currentTimeMillis()
                 )
-                viewModel.insert(taskEntry)
+                taskRepository.insert(taskEntry)
+
                 Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_addFragment_to_taskFragment)
             }

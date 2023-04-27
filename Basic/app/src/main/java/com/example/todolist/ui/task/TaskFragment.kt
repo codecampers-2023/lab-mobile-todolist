@@ -10,15 +10,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.todolist.R
+import com.example.todolist.data.TaskRepository
 import com.example.todolist.databinding.FragmentTaskBinding
 
 
 class TaskFragment : Fragment() {
-
-    var thiscontext: Context? = null
-
-    // https://dev.to/vtsen/recommended-ways-to-create-viewmodel-or-androidviewmodel-5e7k
-    private  var viewModel =  TaskViewModel(getActivity().getApplicationContext() as Application)
 
 
     private lateinit var mAdapter: TaskAdapter
@@ -30,23 +26,17 @@ class TaskFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        thiscontext = container?.context
-
-        viewModel = TaskViewModel(thiscontext)
-
+        val taskRepository = TaskRepository()
         val binding = FragmentTaskBinding.inflate(inflater, container, false)
 
         binding.lifecycleOwner = this
-        binding.viewModel = viewModel
 
         mAdapter = TaskAdapter(TaskClickListener { taskEntry ->
             findNavController().navigate(TaskFragmentDirections.actionTaskFragmentToUpdateFragment(taskEntry))
         })
 
 
-        viewModel.getAllTasks.observe(viewLifecycleOwner){
-            mAdapter.submitList(it)
-        }
+        mAdapter.submitList(taskRepository.getAllTasks())
 
 
         binding?.apply {

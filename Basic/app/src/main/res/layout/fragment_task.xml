@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="viewModel"
-            type="com.example.todolist.ui.task.TaskViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -12,13 +12,11 @@ import androidx.navigation.fragment.navArgs
 import com.example.todolist.R
 import com.example.todolist.data.local.TaskEntry
 import com.example.todolist.databinding.FragmentUpdateBinding
-import com.example.todolist.ui.task.TaskViewModel
 
 
 class UpdateFragment : Fragment() {
 
-    // https://dev.to/vtsen/recommended-ways-to-create-viewmodel-or-androidviewmodel-5e7k
-    private var viewModel =  TaskViewModel(requireActivity().application)
+
 
     private var _binding: FragmentUpdateBinding? = null
     private val binding get() = _binding!!
@@ -51,7 +49,7 @@ class UpdateFragment : Fragment() {
                     args.task.timestamp
                 )
 
-                viewModel.update(taskEntry)
+                // viewModel.update(taskEntry)
                 Toast.makeText(requireContext(), "Updated!", Toast.LENGTH_SHORT).show()
 
                 findNavController().navigate(R.id.action_updateFragment_to_taskFragment)

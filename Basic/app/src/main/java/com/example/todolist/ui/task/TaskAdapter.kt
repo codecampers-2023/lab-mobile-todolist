@@ -11,6 +11,13 @@ import com.example.todolist.databinding.RowLayoutBinding
 class TaskAdapter(private val clickListener: TaskClickListener):
     ListAdapter<TaskEntry, TaskAdapter.ViewHolder>(TaskDiffCallback) {
 
+
+    /*
+    // https://stackoverflow.com/questions/71463283/kotlin-unable-to-update-recyclerview-from-fragment
+
+    companion object {var taskAdapter:TaskAdapter?=null}
+    */
+
     companion object TaskDiffCallback : DiffUtil.ItemCallback<TaskEntry>(){
         override fun areItemsTheSame(oldItem: TaskEntry, newItem: TaskEntry) = oldItem.id == newItem.id
         override fun areContentsTheSame(oldItem: TaskEntry, newItem: TaskEntry) = oldItem == newItem
