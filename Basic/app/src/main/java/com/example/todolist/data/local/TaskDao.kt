@@ -1,34 +1,35 @@
-package com.example.todolist.data.local
+package com.example.todolist.data
 
-import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
-import kotlinx.coroutines.flow.Flow
 
-@Dao
-interface TaskDao {
+class TaskDao {
 
-    @Insert
-    suspend fun insert(taskEntry: TaskEntry)
 
-    @Delete
-    suspend fun delete(taskEntry: TaskEntry)
+    private var list_tasks : MutableList<TaskEntry> = mutableListOf<TaskEntry>()
 
-    @Update
-    suspend fun update(taskEntry: TaskEntry)
+    init {
+        // Todo : add 10 tasks
+        val t1 = TaskEntry(1,"Task1",1,System.currentTimeMillis())
+        list_tasks.add(t1)
+        list_tasks.add(t1)
+    }
 
-    @Query("DELETE FROM task_table")
-    suspend fun deleteAll()
+    fun insert(taskEntry: TaskEntry){
 
-    @Query("SELECT * FROM task_table ORDER BY timestamp DESC")
-    fun getAllTasks(): LiveData<List<TaskEntry>>
+         list_tasks.add(taskEntry)
+     }
 
-    @Query("SELECT * FROM task_table ORDER BY priority ASC")
-    fun getAllPriorityTasks(): LiveData<List<TaskEntry>>
+     fun delete(taskEntry: TaskEntry){
 
-    @Query("SELECT * FROM task_table WHERE title LIKE :searchQuery ORDER BY timestamp DESC")
-    fun searchDatabase(searchQuery: String): LiveData<List<TaskEntry>>
+     }
+
+     fun update(taskEntry: TaskEntry){
+
+     }
+
+
+    fun getAllTasks(): MutableList<TaskEntry> {
+        return list_tasks
+    }
+
+
 }
