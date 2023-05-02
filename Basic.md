@@ -1,6 +1,12 @@
 # Todolist niveau Basic
 
 
+## Pre-requis
+
+- 
+
+
+
 ## Travail à faire 
 
 - Lecture rapide de l'auto-formation

@@ -77,3 +77,4 @@ class User(val firstName: String, val lastName: String, val age: Int): Parcelabl
 - https://github.com/timemake/Kotlin-MVVM-ToDoList
 - https://kim-pro.medium.com/kotlin-mvvm-todo-list-f137ecfc96bb
 - [Kotlin MVVM ToDo List](https://www.youtube.com/playlist?list=PLoCYbRS6dPkJMThvLiPEaWGQ0tV2XL4v8)
+- https://github.com/android/architecture-samples
