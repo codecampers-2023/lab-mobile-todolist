@@ -20,4 +20,3 @@
 - version 1 
   - https://www.youtube.com/watch?v=RfIR4oaSVfQ&t=44s
   - https://github.com/codeWithCal/TodoListTutorialProject/tree/RecyclerViewTutorial_Part_2
-  - https://www.youtube.com/playlist?list=PLnQbggnVfvo2dHawJtYVfvAN18NKBKuRD

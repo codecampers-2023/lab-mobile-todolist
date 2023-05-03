@@ -4,9 +4,9 @@ Avant de réaliser le lab-todolist veillez réaliser  une lecture rapide sur l'a
 
 ## Trois version 
 
-- [Basic](Basic.md)
-- [Standard](Standard.md)
-- [Premium](Premium.md)
+- [Basic](docs/Basic.md)
+- [Standard](docs/Standard.md)
+- [Premium](docs/Premium.md)
 
 
 ## Références
